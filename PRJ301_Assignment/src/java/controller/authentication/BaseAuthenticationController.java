@@ -4,7 +4,6 @@
  */
 package controller.authentication;
 
-import dal.AccountDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,31 +15,34 @@ import model.Account;
  *
  * @author Mạc Huyền
  */
-public class LoginController extends HttpServlet{
+public abstract class BaseAuthenticationController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user = req.getParameter("username");
-        String pass = req.getParameter("password");
-        AccountDBContext db = new AccountDBContext();
-        Account account = db.get(user, pass);
-        if(account == null) {
-            resp.getWriter().println("Your account is not allowed to log into the system");
+        if(isAuthenticated(req)) {
+            processPost(req, resp);
         }
         else {
-            req.getSession().setAttribute("account", account);
-            req.getRequestDispatcher("/default/Home.jsp").forward(req, resp);
+            resp.getWriter().println("Access denied");
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/authenticate/Login.jsp").forward(req, resp);
+        if(isAuthenticated(req)) {
+            processGet(req, resp);
+        }
+        else {
+            resp.getWriter().println("Access denied!");
+        }
     }
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+
+    private boolean isAuthenticated(HttpServletRequest req) {
+        Account account = (Account)req.getSession().getAttribute("account");
+        return account != null;
+    }
+
+    protected abstract void processPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+    protected abstract void processGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
     
 }

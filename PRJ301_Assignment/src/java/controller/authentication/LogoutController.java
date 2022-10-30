@@ -4,38 +4,31 @@
  */
 package controller.authentication;
 
-import dal.AccountDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import model.Account;
 
 /**
  *
  * @author Mạc Huyền
  */
-public class LoginController extends HttpServlet{
+public class LogoutController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user = req.getParameter("username");
-        String pass = req.getParameter("password");
-        AccountDBContext db = new AccountDBContext();
-        Account account = db.get(user, pass);
-        if(account == null) {
-            resp.getWriter().println("Your account is not allowed to log into the system");
-        }
-        else {
-            req.getSession().setAttribute("account", account);
-            req.getRequestDispatcher("/default/Home.jsp").forward(req, resp);
-        }
+        processRequest(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/authenticate/Login.jsp").forward(req, resp);
+        processRequest(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getSession().setAttribute("account", null);
+        resp.getWriter().println("Logout successful");
     }
     
     @Override
