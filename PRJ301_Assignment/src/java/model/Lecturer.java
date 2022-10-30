@@ -10,17 +10,17 @@ import java.util.ArrayList;
  *
  * @author Mạc Huyền
  */
-class Lecturer {
-    private int lecturerID;
+public class Lecturer {
+    private String lecturerID;
     private String lecturerName;
     private ArrayList<Group> group = new ArrayList<>();
     private ArrayList<Session> session = new ArrayList<>();
 
-    public int getLecturerID() {
+    public String getLecturerID() {
         return lecturerID;
     }
 
-    public void setLecturerID(int lecturerID) {
+    public void setLecturerID(String lecturerID) {
         this.lecturerID = lecturerID;
     }
 

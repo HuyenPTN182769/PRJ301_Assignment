@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Mạc Huyền
  */
-class Session {
+public class Session {
     private int sessionNo;
     private Group group;
     private Room room;
