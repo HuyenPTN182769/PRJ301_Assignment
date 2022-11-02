@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Mạc Huyền
@@ -14,6 +16,15 @@ public class Attendance {
     private Student student;
     private boolean attend;
     private String description;
+    private Date recordTime;
+
+    public Date getRecordTime() {
+        return recordTime;
+    }
+
+    public void setRecordTime(Date recordTime) {
+        this.recordTime = recordTime;
+    }
 
     public String getStudentID() {
         return studentID;
