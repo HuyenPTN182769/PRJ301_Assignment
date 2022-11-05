@@ -24,7 +24,7 @@ public class TimeSlotDBContext extends DBContext<TimeSlot> {
     }
 
     @Override
-    public ArrayList<TimeSlot> schedule() {
+    public ArrayList<TimeSlot> list() {
         ArrayList<TimeSlot> timeSlot = new ArrayList<>();
         try {
             String sql = "SELECT Slot, [Description] FROM TimeSlot";

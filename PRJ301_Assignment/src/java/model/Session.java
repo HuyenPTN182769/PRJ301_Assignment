@@ -16,7 +16,7 @@ public class Session {
     private Group group;
     private Room room;
     private Date date;
-    private TimeSlot slot;
+    private TimeSlot timeSlot;
     private Lecturer lecturer;
     private boolean attend;
     private int index;
@@ -54,12 +54,12 @@ public class Session {
         this.date = date;
     }
 
-    public TimeSlot getSlot() {
-        return slot;
+    public TimeSlot getTimeSlot() {
+        return timeSlot;
     }
 
-    public void setSlot(TimeSlot slot) {
-        this.slot = slot;
+    public void setTimeSlot(TimeSlot timeSlot) {
+        this.timeSlot = timeSlot;
     }
 
     public Lecturer getLecturer() {

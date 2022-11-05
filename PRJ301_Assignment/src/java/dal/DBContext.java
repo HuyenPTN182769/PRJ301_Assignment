@@ -33,5 +33,5 @@ public abstract class DBContext<T> {
     }
     
     public abstract T get(String id); //SELECT * FROM WHERE id =
-    public abstract ArrayList<T> schedule();//SELECT * FROM
+    public abstract ArrayList<T> list();//SELECT * FROM
 }

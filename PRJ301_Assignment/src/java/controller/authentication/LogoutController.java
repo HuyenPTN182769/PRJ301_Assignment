@@ -26,9 +26,10 @@ public class LogoutController extends HttpServlet {
         processRequest(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
-    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         req.getSession().setAttribute("account", null);
         resp.getWriter().println("Logout successful");
+        req.getRequestDispatcher("/authenticate/Login.jsp").forward(req, resp);
     }
     
     @Override

@@ -10,27 +10,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Lecturer;
+import model.Student;
 
 /**
  *
  * @author Mạc Huyền
  */
-public class LecturerDBContext extends dal.DBContext<Lecturer> {
-    
+public class StudentDBContext extends DBContext<Student> {
+
     @Override
-    public Lecturer get(String id) {
+    public Student get(String id) {
         try {
-            String sql = "SELECT LectureID, LectureName FROM Lecturer WHERE LectureID = ?";
+            String sql = "SELECT StudentID, StudentName FROM Student WHERE StudentID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, id);
             ResultSet rs = stm.executeQuery();
             if(rs.next())
             {
-                Lecturer l = new Lecturer();
-                l.setLecturerID(rs.getString("LectureID"));
-                l.setLecturerName(rs.getString("LectureName"));
-                return l;
+                Student st = new Student();
+                st.setStudentID(rs.getString("StudentID"));
+                st.setStudentName(rs.getString("StudentName"));
+                return st;
             }
         } catch (SQLException ex) {
             Logger.getLogger(LecturerDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -39,8 +39,8 @@ public class LecturerDBContext extends dal.DBContext<Lecturer> {
     }
 
     @Override
-    public ArrayList<Lecturer> list() {
+    public ArrayList<Student> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
 }

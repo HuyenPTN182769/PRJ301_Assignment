@@ -11,11 +11,10 @@ import java.sql.Date;
  * @author Mạc Huyền
  */
 public class Attendance {
-    private String studentID;
+    private int attendID;
     private Session session;
     private Student student;
-    private boolean attend;
-    private String description;
+    private boolean status;
     private Date recordTime;
 
     public Date getRecordTime() {
@@ -26,12 +25,12 @@ public class Attendance {
         this.recordTime = recordTime;
     }
 
-    public String getStudentID() {
-        return studentID;
+    public int getAttendID() {
+        return attendID;
     }
 
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
+    public void setAttendID(int attendID) {
+        this.attendID = attendID;
     }
 
     public Session getSession() {
@@ -50,20 +49,12 @@ public class Attendance {
         this.student = student;
     }
 
-    public boolean isAttend() {
-        return attend;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setAttend(boolean attend) {
-        this.attend = attend;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
 }

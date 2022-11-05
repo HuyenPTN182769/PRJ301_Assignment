@@ -77,7 +77,7 @@ public class AccountDBContext extends DBContext<Account> {
     }
 
     @Override
-    public ArrayList<Account> schedule() {
+    public ArrayList<Account> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

@@ -30,7 +30,7 @@ public class TakeAttendanceController extends BaseRoleController{
             Attendance a = new Attendance();
             Student s = new Student();
             a.setStudent(s);
-            a.setAttend(req.getParameter("attend" + stuID).equals("present"));
+            a.setStatus(req.getParameter("attend" + stuID).equals("present"));
             s.setStudentID(stuID);
             ss.getAttendance().add(a);
         }

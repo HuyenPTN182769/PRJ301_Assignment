@@ -77,7 +77,7 @@ public class SessionDBContext extends dal.DBContext<Session> {
                 
                 t.setSlot(rs.getInt("slot"));
                 t.setDescription(rs.getString("description"));
-                ss.setSlot(t);
+                ss.setTimeSlot(t);
                 
                 session.add(ss);
             }
@@ -93,7 +93,7 @@ public class SessionDBContext extends dal.DBContext<Session> {
     }
 
     @Override
-    public ArrayList<Session> schedule() {
+    public ArrayList<Session> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
