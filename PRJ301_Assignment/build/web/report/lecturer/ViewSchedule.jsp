@@ -81,7 +81,8 @@
                         (<font color="green">attended</font>): ${requestScope.lecturer.lecturerID} had attended this activity / ${requestScope.lecturer.lecturerName} đã tham gia hoạt động này
                     </li>
                     <li>
-                        (<font color="red">absent</font>): ${requestScope.lecturer.lecturerID} had NOT attended this activity / ${requestScope.lecturer.lecturerName} đã vắng mặt buổi này</li>
+                        (<font color="red">absent</font>): ${requestScope.lecturer.lecturerID} had NOT attended this activity / ${requestScope.lecturer.lecturerName} đã vắng mặt buổi này
+                    </li>
                     <li>(-): no data was given / chưa có dữ liệu</li> 
                 </ul>
             </div>

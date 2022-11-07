@@ -21,12 +21,8 @@
         <servlet-class>controller.lecturer.TakeAttendanceController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LogoutController</servlet-name>
-        <url-pattern>/authenticate/Logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
-        <url-pattern>/authenticate/Login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LecturerViewScheduleController</servlet-name>
@@ -39,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>LecturerTakeAttController</servlet-name>
         <url-pattern>/report/lecturer/TakeAttendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

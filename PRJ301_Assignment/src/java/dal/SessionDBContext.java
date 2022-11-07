@@ -77,7 +77,7 @@ public class SessionDBContext extends dal.DBContext<Session> {
                 
                 t.setSlot(rs.getInt("slot"));
                 t.setDescription(rs.getString("description"));
-                ss.setTimeSlot(t);
+                ss.setSlot(t);
                 
                 session.add(ss);
             }

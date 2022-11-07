@@ -1,10 +1,9 @@
 <%-- 
     Document   : Home
-    Created on : Oct 30, 2022, 11:30:34 PM
+    Created on : Nov 7, 2022, 7:54:02 PM
     Author     : Mạc Huyền
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,6 +48,5 @@
         <c:if test="${sessionScope.account eq null}">
             You are not logged in yet!
         </c:if>
-        
     </body>
 </html>

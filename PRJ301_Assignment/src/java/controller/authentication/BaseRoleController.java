@@ -26,7 +26,7 @@ public abstract class BaseRoleController extends BaseAuthenticationController {
         }
         else
         {
-            resp.getWriter().println("access denied!");
+            resp.getWriter().println("Access denied!");
         }
     }
 

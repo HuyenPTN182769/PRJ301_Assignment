@@ -75,7 +75,7 @@ public class AttendanceDBContext extends DBContext<Attendance>{
 
                 ts.setSlot(rs.getInt("slot"));
                 ts.setDescription(rs.getString("description"));
-                s.setTimeSlot(ts);
+                s.setSlot(ts);
 
                 g.setGroupID(rs.getInt("GroupID"));
                 g.setGroupName(rs.getString("GroupName"));

@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import model.Account;
+import model.Role;
 
 /**
  *
@@ -20,16 +21,23 @@ public class LoginController extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user = req.getParameter("username");
-        String pass = req.getParameter("password");
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
         AccountDBContext db = new AccountDBContext();
-        Account account = db.get(user, pass);
-        if(account == null) {
-            resp.getWriter().println("Your account is not allowed to log into the system");
-        }
-        else {
+        Account account = db.get(username, password);
+        if (account == null) {
+            req.setAttribute("faild", "Login failed!");
+            req.getRequestDispatcher("/authenticate/Login.jsp").forward(req, resp);
+        } else {
             req.getSession().setAttribute("account", account);
-            req.getRequestDispatcher("/default/Home.jsp").forward(req, resp);
+            Role role = account.getRole().get(0);
+            if (role != null) {
+                if (role.getRoleID() == 1) {
+                    req.getRequestDispatcher("/report/lecturer/Home.jsp").forward(req, resp);
+                } else {
+                    req.getRequestDispatcher("/report/student/Home.jsp").forward(req, resp);
+                }
+            }
         }
     }
 

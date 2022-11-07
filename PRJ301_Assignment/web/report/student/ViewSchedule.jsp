@@ -1,11 +1,9 @@
 <%-- 
     Document   : ViewSchedule
-    Created on : Oct 30, 2022, 4:50:04 PM
+    Created on : Nov 7, 2022, 7:54:34 PM
     Author     : Mạc Huyền
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="helper" class="helper.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,9 +20,9 @@
             <b>View Schedule</b>
         </span> <br/>
         <div style="text-align: center">
-            Lecturer: <input type="text" style="" value="${requestScope.lecturer.lecturerName}"/>
+            Lecturer: <input type="text" style="" value="${requestScope.student.studentName}"/>
             <form action="ViewSchedule" method="GET">
-                <input type="hidden" name="lecturerID" value="${param.lecturerID}"/>
+                <input type="hidden" name="lecturerID" value="${param.studentID}"/>
                 From: <input type="date" name="from" value="${requestScope.from}"/>
                 To: <input type="date" name="to" value="${requestScope.to}"/>
                 <input type="submit" value="View"/> 
@@ -78,10 +76,10 @@
             <div id="ctl00_mainContent_divfoot">
                 <ul>
                     <li>
-                        (<font color="green">attended</font>): ${requestScope.lecturer.lecturerID} had attended this activity / ${requestScope.lecturer.lecturerName} đã tham gia hoạt động này
+                        (<font color="green">attended</font>): ${requestScope.student.studentID} had attended this activity / ${requestScope.student.studentName} đã tham gia hoạt động này
                     </li>
                     <li>
-                        (<font color="red">absent</font>): ${requestScope.lecturer.lecturerID} had NOT attended this activity / ${requestScope.lecturer.lecturerName} đã vắng mặt buổi này
+                        (<font color="red">absent</font>): ${requestScope.student.studentID} had NOT attended this activity / ${requestScope.student.studentName} đã vắng mặt buổi này
                     </li>
                     <li>(-): no data was given / chưa có dữ liệu</li> 
                 </ul>

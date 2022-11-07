@@ -4,6 +4,8 @@
     Author     : Mạc Huyền
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="helper" class="util.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,13 +52,13 @@
                                            <c:if test="${attend.isStatus()}">
                                                checked="checked"
                                            </c:if>
-                                           name="status${attend.student.studentID}" value="Present" />
+                                           name="status${attend.student.studentID}" value="present" />
                                     <font color="Green">Present</font>
                                     <input type="radio"
                                            <c:if test="${!attend.isStatus()}">
                                                checked="checked"
                                            </c:if>
-                                           name="status${attend.student.studentID}" value="Absent" />
+                                           name="status${attend.student.studentID}" value="absent" />
                                     <font color="red">Absent</font>
                                 </td>
                                 <td>${requestScope.session.group.supervisor.lecturerID}</td>
